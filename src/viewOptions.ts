@@ -88,6 +88,14 @@ export function getViewOptions(): any[] {
       displayName: 'Tooltip properties',
       placeholder: 'e.g. parent, spouse, dob (comma-separated, max 7)',
     },
+    /** ChatGPT v1 edit*/
+    {
+      type: 'text',
+      key: 'dashboardProps',
+      displayName: 'Dashboard fields',
+      placeholder: 'e.g. design_status, revision, percent_complete',
+    },
+    /** end v1 edit */
 
     // ── Avatar shape ──
     {
