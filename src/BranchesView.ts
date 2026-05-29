@@ -129,6 +129,13 @@ export class BranchesView extends BasesView {
     // Avatar shape (defaults to 'circle')
     const avatarShape = (this.config.get('avatarShape') as string) || 'circle';
 
+    /** ChatGPT v1 edit - "near tooltip parsing" */
+    const dashboardPropsRaw = (this.config.get('dashboardProps') as string) || '';
+    const dashboardProperties = dashboardPropsRaw
+      .split(',')
+      .map((s: string) => s.trim())
+      .filter((s: string) => s.length > 0);
+    
     // Tooltip properties (comma-separated text field, max 7, or auto-detect from frontmatter)
     const tooltipPropsRaw = (this.config.get('tooltipProps') as string) || '';
     const userTooltipProps = tooltipPropsRaw
@@ -171,6 +178,7 @@ export class BranchesView extends BasesView {
       avatarShape: avatarShape as TreeConfig['avatarShape'],
       tooltipProperties,
       layoutDirection: layoutDir as TreeConfig['layoutDirection'],
+      dashboardProperties,
     };
 
     // Compute a stable scope ID for position persistence.
