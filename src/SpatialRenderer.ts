@@ -429,6 +429,21 @@ export class SpatialRenderer {
       content.createDiv({ cls: 'branches-node-subtitle branches-node-subtitle2', text: node.subtitle2 });
     }
 
+    /** ChatGPT v1 changes - "after subtitle2" */
+    if (this.config.dashboardProperties.length > 0) {
+      const dashboard = content.createDiv({ cls: 'branches-node-dashboard' });
+    
+      for (const prop of this.config.dashboardProperties) {
+        const raw = node.properties[prop];
+        if (raw == null || raw === '') continue;
+    
+        const row = dashboard.createDiv({ cls: 'branches-node-dashboard-row' });
+        row.createSpan({ cls: 'branches-node-dashboard-label', text: prop });
+        row.createSpan({ cls: 'branches-node-dashboard-value', text: String(raw) });
+      }
+    }
+    /** End v1 edit */
+
     // Right section: avatar (if image set) and/or child count badge
     const showBadge = this.config.showChildCount && node.children.length > 0;
     if (node.imageUrl) {
