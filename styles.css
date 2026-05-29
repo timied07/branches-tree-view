@@ -1172,3 +1172,28 @@ settings:
 .branches-indented-children {
   /* no extra styling needed — depth is handled by paddingLeft */
 }
+
+/** ChatGPT v1 edite - adding at the end bc IDK where? */
+.branches-node-dashboard {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+}
+
+.branches-node-dashboard-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.branches-node-dashboard-label {
+  opacity: 0.65;
+}
+
+.branches-node-dashboard-value {
+  font-weight: 600;
+}
+
+/** end v1 edits */
