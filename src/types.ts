@@ -99,6 +99,7 @@ export const DEFAULT_TREE_CONFIG: TreeConfig = {
   nodeHeight: 64,
   rankSep: 60,
   nodeSep: 24,
+  dashboardProperties: [],
 };
 
 /**
