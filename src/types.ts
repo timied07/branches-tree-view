@@ -96,7 +96,7 @@ export const DEFAULT_TREE_CONFIG: TreeConfig = {
   tooltipProperties: [],
   layoutDirection: 'TB',
   nodeWidth: 240,
-  nodeHeight: 64,
+  nodeHeight: 120,
   rankSep: 60,
   nodeSep: 24,
   dashboardProperties: [],
