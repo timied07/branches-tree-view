@@ -73,6 +73,9 @@ export interface TreeConfig {
   rankSep: number;
   /** Horizontal gap between sibling nodes. */
   nodeSep: number;
+
+  /** ChatGPT v1 - Adding dashboard */
+  dashboardProperties: string[];
 }
 
 /** Result of dagre layout computation. */
