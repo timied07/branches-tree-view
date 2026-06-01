@@ -1201,6 +1201,7 @@ settings:
 /** v1 edits for the dashboard presets */ 
 .branches-dashboard-presets {
   display: flex;
+  flex-direction: column;
   gap: 4px;
   margin-right: 8px;
 }
