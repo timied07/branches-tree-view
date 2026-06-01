@@ -1559,6 +1559,35 @@ export class SpatialRenderer {
   private buildControls(): void {
     const signal = this.abortController.signal;
 
+    // v1 chat edits
+    const presetWrap = this.controlsBar.createDiv({ cls: 'branches-dashboard-presets' });
+      
+      for (const preset of ['overall', 'engineering', 'manufacturing'] as const) {
+        const btn = presetWrap.createDiv({
+          cls: 'branches-dashboard-preset-btn',
+          text: preset === 'overall'
+            ? 'Overall'
+            : preset === 'engineering'
+              ? 'Engineering'
+              : 'Manufacturing',
+        });
+      
+        if (preset === this.activeDashboardPreset) {
+          btn.classList.add('is-active');
+        }
+      
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+      
+          presetWrap.querySelectorAll('.branches-dashboard-preset-btn')
+            .forEach((el) => el.classList.remove('is-active'));
+      
+          btn.classList.add('is-active');
+          this.setDashboardPreset(preset);
+        }, { signal });
+      }
+    // end v1 edits
+
     const zoomIn = this.controlsBar.createDiv({ cls: 'branches-control-btn' });
     setIcon(zoomIn, 'plus');
     zoomIn.setAttribute('aria-label', 'Zoom in');
