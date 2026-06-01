@@ -27,6 +27,15 @@ export class SpatialRenderer {
   private config: TreeConfig;
   private layout: LayoutResult | null = null;
 
+  // Chat v1 edit - adding card display selector
+  private activeDashboardPreset: 'overall' | 'engineering' | 'manufacturing' = 'overall';
+  
+  private readonly dashboardPresets = {
+    overall: ['description', 'status', 'revision'],
+    engineering: ['description', 'design_status', 'revision', 'percent_complete'],
+    manufacturing: ['description', 'manufacturing_status', 'make_buy', 'material'],
+  };
+
   // Spacing mode: affects edge gap AND dagre rank/node separation
   private edgeSpacing: 'compact' | 'expanded' = 'compact';
   private get edgeGap(): number { return this.edgeSpacing === 'compact' ? 8 : 48; }
@@ -1291,6 +1300,20 @@ export class SpatialRenderer {
     this.applyTransform();
   }
 
+  // ───  v1 Chat edit - Dashboard View Presets ───────────────────────────────────
+  private setDashboardPreset(preset: 'overall' | 'engineering' | 'manufacturing'): void {
+    this.activeDashboardPreset = preset;
+    this.config.dashboardProperties = this.dashboardPresets[preset];
+  
+    if (this.baseConfig) {
+      this.baseConfig.dashboardProperties = this.dashboardPresets[preset];
+    }
+  
+    this.rebuildNodes();
+    this.renderEdges();
+    this.applyTransform();
+  }
+  
   // ─── Keyboard navigation ───────────────────────────────────
 
   private setupKeyboard(): void {
