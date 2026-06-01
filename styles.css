@@ -1197,3 +1197,26 @@ settings:
 }
 
 /** end v1 edits */
+
+/** v1 edits for the dashboard presets */ 
+.branches-dashboard-presets {
+  display: flex;
+  gap: 4px;
+  margin-right: 8px;
+}
+
+.branches-dashboard-preset-btn {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  cursor: pointer;
+  color: var(--text-muted);
+  background: var(--background-secondary);
+}
+
+.branches-dashboard-preset-btn:hover,
+.branches-dashboard-preset-btn.is-active {
+  color: var(--text-normal);
+  background: var(--interactive-accent);
+}
+/** end v1 dashboard preset edits */
