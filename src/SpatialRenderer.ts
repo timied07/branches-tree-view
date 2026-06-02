@@ -413,7 +413,8 @@ export class SpatialRenderer {
     const el = document.createElement('div');
     el.className = 'branches-node';
     el.dataset.id = node.id;
-    el.style.transform = `translate(${node.x}px, ${node.y}px)`;
+    //el.style.transform = `translate(${node.x}px, ${node.y}px)`;
+    el.style.transform = `translate(${Math.round(node.x)}px, ${Math.round(node.y)}px)`;
     el.style.width = `${node.width}px`;
     el.style.height = `${node.height}px`;
     if (this.freeArrange) el.style.cursor = 'grab';
@@ -565,7 +566,8 @@ export class SpatialRenderer {
       }
       node.x = this.nodeDragState.nodeStartX + dx;
       node.y = this.nodeDragState.nodeStartY + dy;
-      el.style.transform = `translate(${node.x}px, ${node.y}px)`;
+      //el.style.transform = `translate(${node.x}px, ${node.y}px)`;
+      el.style.transform = `translate(${Math.round(node.x)}px, ${Math.round(node.y)}px)`;
       // Re-render edges to follow the moved card
       this.renderEdges();
     }, { signal });
