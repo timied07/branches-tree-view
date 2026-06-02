@@ -184,7 +184,6 @@ export class SpatialRenderer {
     this.renderEdges();
     this.animateEdges = false;
     this.autoFit();
-    this.applyTransform(); // Should apply changes on launch
   }
 
   setEdgeSpacing(mode: 'compact' | 'expanded'): void {
@@ -1553,10 +1552,21 @@ export class SpatialRenderer {
     this.applyTransform();
   }
 
+  /** Commenting out for Test 2
   private applyTransform(): void {
     this.canvasWrapper.style.transform =
       `translate(${this.panX}px, ${this.panY}px) scale(${this.zoom})`;
   }
+  */
+  // Test 2
+  private applyTransform(): void {
+    const x = Math.round(this.panX);
+    const y = Math.round(this.panY);
+  
+    this.canvasWrapper.style.transform =
+      `translate(${x}px, ${y}px) scale(${this.zoom})`;
+  }
+  
 
   // ─── Controls ─────────────────────────────────────────────
 
