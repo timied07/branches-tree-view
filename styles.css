@@ -555,6 +555,10 @@ settings:
 }
 
 .branches-node:hover {
+  filter: none;
+}
+/** testing graphic UI fix 
+.branches-node:hover {
   box-shadow: 0 6px 16px rgba(0, 0, 0, var(--branches-node-hover-shadow-opacity, 0.12));
   border-color: var(--background-modifier-border-hover);
   filter: brightness(1.02);
@@ -584,6 +588,7 @@ settings:
     0 0 12px rgba(var(--interactive-accent-rgb, 99, 102, 241), 0.2),
     0 4px 12px rgba(0, 0, 0, var(--branches-node-hover-shadow-opacity, 0.12));
 }
+*/
 
 /* ── Drag-to-link handles ── */
 .branches-drag-handle {
