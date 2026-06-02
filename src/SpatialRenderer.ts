@@ -184,17 +184,7 @@ export class SpatialRenderer {
     this.renderEdges();
     this.animateEdges = false;
     this.autoFit();
-    
-    // Rebuild once more after the initial transform settles.
-    // This avoids blurry text caused by first-render canvas scaling.
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        this.rebuildNodes();
-        this.renderEdges();
-        this.applyTransform();
-      });
-    });
-    
+    this.applyTransform(); // Should apply changes on launch
   }
 
   setEdgeSpacing(mode: 'compact' | 'expanded'): void {
