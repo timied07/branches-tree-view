@@ -177,6 +177,7 @@ export class SpatialRenderer {
     if (!this.baseConfig) this.baseConfig = { ...this.config };
     this.applySpacingToConfig();
     this.doLayout();
+    this.config.dashboardProperties = this.dashboardPresets[this.activeDashboardPreset]; // load preset on launch
     // Full rebuild on initial render / data change
     this.rebuildNodes();
     this.animateEdges = true;
