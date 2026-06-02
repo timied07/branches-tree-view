@@ -1558,13 +1558,20 @@ export class SpatialRenderer {
       `translate(${this.panX}px, ${this.panY}px) scale(${this.zoom})`;
   }
   */
-  // Test 2
+  /** Test 2
   private applyTransform(): void {
     const x = Math.round(this.panX);
     const y = Math.round(this.panY);
   
     this.canvasWrapper.style.transform =
       `translate(${x}px, ${y}px) scale(${this.zoom})`;
+  }
+  */
+
+  // Fixed ZOOM test
+  private applyTransform(): void {
+    this.canvasWrapper.style.transform =
+      `translate(${this.panX}px, ${this.panY}px) scale(1)`;
   }
   
 
