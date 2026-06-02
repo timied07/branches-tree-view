@@ -762,6 +762,7 @@ settings:
   padding-left: calc(var(--branches-node-padding-x, 12px) + 2px);
 }
 
+/** Original Header-Title for P/N
 .branches-node-title {
   font-size: var(--branches-node-title-size, 13px);
   font-weight: 600;
@@ -770,6 +771,15 @@ settings:
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.4;
+}
+*/
+
+// Setting to Arial Black for part number
+.branches-node-title {
+  font-family: "Arial Black", Arial, sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
 }
 
 /* Subtitle below title */
