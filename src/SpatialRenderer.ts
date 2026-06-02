@@ -188,9 +188,11 @@ export class SpatialRenderer {
     // Rebuild once more after the initial transform settles.
     // This avoids blurry text caused by first-render canvas scaling.
     requestAnimationFrame(() => {
-      this.rebuildNodes();
-      this.renderEdges();
-      this.applyTransform();
+      requestAnimationFrame(() => {
+        this.rebuildNodes();
+        this.renderEdges();
+        this.applyTransform();
+      });
     });
     
   }
