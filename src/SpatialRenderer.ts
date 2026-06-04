@@ -416,10 +416,6 @@ export class SpatialRenderer {
     const el = document.createElement('div');
     el.className = 'branches-node';
     //coloring cards
-    const status = String(node.properties?.status ?? '').toLowerCase();
-    const type = String(node.properties?.type ?? '').toUpperCase();
-    
-    // Background color from status
     const status = String(node.properties?.status ?? '').trim().toLowerCase();
     const type = String(node.properties?.type ?? '').trim().toUpperCase();
     
