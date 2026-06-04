@@ -14,6 +14,20 @@ const MIN_ZOOM = 0.15;
 const MAX_ZOOM = 2.0;
 const ZOOM_STEP = 0.08;
 
+// Color Rule Tables
+const STATUS_BACKGROUNDS: Record<string, string> = {
+  concept: 'rgba(255, 0, 0, 0.12)',
+  review: 'rgba(0, 120, 255, 0.12)',
+  prototype: 'rgba(128, 128, 128, 0.12)',
+  design: 'rgba(128, 0, 255, 0.10)',
+};
+
+const TYPE_BORDERS: Record<string, string> = {
+  A: '#ffd700',
+  P: '#555555',
+};
+// End Color Rule Tables
+
 export class SpatialRenderer {
   private container: HTMLElement;
   private canvasWrapper: HTMLElement;
@@ -401,23 +415,23 @@ export class SpatialRenderer {
   private createNodeElement(node: TreeNode): HTMLElement {
     const el = document.createElement('div');
     el.className = 'branches-node';
-    //coloeing cards
+    //coloring cards
     const status = String(node.properties?.status ?? '').toLowerCase();
     const type = String(node.properties?.type ?? '').toUpperCase();
     
     // Background color from status
-    if (status === 'concept') {
-      el.style.backgroundColor = 'rgba(255, 0, 0, 0.12)';
+    const status = String(node.properties?.status ?? '').trim().toLowerCase();
+    const type = String(node.properties?.type ?? '').trim().toUpperCase();
+    
+    const bg = STATUS_BACKGROUNDS[status];
+    if (bg) {
+      el.style.backgroundColor = bg;
     }
     
-    if (status === 'review') {
-      el.style.backgroundColor = 'rgba(0, 120, 255, 0.12)';
-    }
-    
-    // Border color from type
-    if (type === 'A') {
-      el.style.borderColor = '#ffd700';
-      el.style.borderWidth = '3px';
+    const border = TYPE_BORDERS[type];
+    if (border) {
+      el.style.borderColor = border;
+      el.style.borderWidth = '2px';
     }
     //end of coloring cards
     el.dataset.id = node.id;
