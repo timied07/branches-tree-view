@@ -401,6 +401,25 @@ export class SpatialRenderer {
   private createNodeElement(node: TreeNode): HTMLElement {
     const el = document.createElement('div');
     el.className = 'branches-node';
+    //coloeing cards
+    const status = String(node.properties?.status ?? '').toLowerCase();
+    const type = String(node.properties?.type ?? '').toUpperCase();
+    
+    // Background color from status
+    if (status === 'concept') {
+      el.style.backgroundColor = 'rgba(255, 0, 0, 0.12)';
+    }
+    
+    if (status === 'review') {
+      el.style.backgroundColor = 'rgba(0, 120, 255, 0.12)';
+    }
+    
+    // Border color from type
+    if (type === 'A') {
+      el.style.borderColor = '#ffd700';
+      el.style.borderWidth = '3px';
+    }
+    //end of coloring cards
     el.dataset.id = node.id;
     //el.style.transform = `translate(${node.x}px, ${node.y}px)`;
     el.style.transform = `translate(${Math.round(node.x)}px, ${Math.round(node.y)}px)`;
